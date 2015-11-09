@@ -10,6 +10,19 @@ class HangpersonGame
     @wrong_guesses = ''
   end
 
+  def word_with_guesses
+    arr = self.word.split(//)
+    guessed = []
+    arr.each do |v|
+      if self.guesses.include?(v)
+        guessed << v
+      else
+        guessed << '-'
+      end
+    end
+    guessed.join
+  end
+
   def guess(guess)
     validate_string(guess)
     local_guess = guess.downcase
